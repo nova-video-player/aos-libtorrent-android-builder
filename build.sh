@@ -64,6 +64,7 @@ export BOOST_BUILD_PATH=$REPO_TOP_DIR/native/boost/boost_$BOOST_VERSION-${ARCH}
 $BOOST_ROOT/b2 \
     --build-dir=../../boost/${BOOST}-${ABI} \
     --stagedir=../../boost/${BOOST}-${ABI}/stage \
+    --user-config=../../boost/${BOOST}-${ABI}/user-config.jam \
     toolset=clang-android link=static runtime-link=static target-os=android release -j4
 
 echo "Done!"
