@@ -51,8 +51,8 @@ if [ ! -d libtorrent ]; then
 fi
 
 cd libtorrent
-# libtorrent 1.2.12 specific commit (there is no tag)
-git checkout e3f2b016dcd37a9a6e8a94006c7befcf2cb7bfac
+# libtorrent 2.0.2 specific commit (there is no tag)
+git checkout 46727ed9e16bfed025f336f3bca9eb801e64c4a5
 
 export BOOST_VERSION=1_72_0
 
