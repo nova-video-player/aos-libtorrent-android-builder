@@ -63,6 +63,16 @@ $BOOST_ROOT/b2 \
     --build-dir=../../boost/${BOOST}-${ABI} \
     --stagedir=../../boost/${BOOST}-${ABI}/stage \
     --user-config=../../boost/${BOOST}-${ABI}/user-config.jam \
-    toolset=clang-android link=static runtime-link=static target-os=android release -j4
+    cxxstd=14 \
+    binary-format=elf \
+    variant=release \
+    threading=multi \
+    threadapi=pthread \
+    toolset=clang-android \
+    link=static \
+    runtime-link=static \
+    target-os=android \
+    release \
+    -j4
 
 echo "Done!"
