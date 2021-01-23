@@ -47,12 +47,10 @@ case "${ARCH}" in
 esac
 
 if [ ! -d libtorrent ]; then
-  git clone https://github.com/arvidn/libtorrent -b RC_2_0
+  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.2
 fi
 
 cd libtorrent
-# libtorrent 2.0.2 specific commit (there is no tag)
-git checkout 46727ed9e16bfed025f336f3bca9eb801e64c4a5
 
 export BOOST_VERSION=1_72_0
 
