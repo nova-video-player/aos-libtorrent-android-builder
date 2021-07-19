@@ -20,7 +20,17 @@ if [[ -z "${ARCH}" ]] ; then
   exit 1
 fi
 
-LOCAL_PATH=$(readlink -f .)
+case `uname` in
+  Linux)
+    READLINK=readlink
+  ;;
+  Darwin)
+    # assumes brew install coreutils in order to support readlink -f on macOS
+    READLINK=greadlink
+  ;;
+esac
+
+LOCAL_PATH=$($READLINK -f .)
 
 # android sdk directory is changing
 [ -n "${ANDROID_HOME}" ] && androidSdk=${ANDROID_HOME}
