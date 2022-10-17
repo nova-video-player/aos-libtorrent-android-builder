@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 set -e
 
@@ -39,22 +39,30 @@ case "${ARCH}" in
 esac
 
 if [ ! -d libtorrent ]; then
-  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.2
+  #git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.7
+  git clone --recursive https://github.com/arvidn/libtorrent
 fi
 
 cd libtorrent
 
-export BOOST_VERSION=1_72_0
+export BOOST_VERSION=1_80_0
 
 export BOOST_ROOT=${REPO_TOP_DIR}/native/boost/boost_${BOOST_VERSION}
 BOOST=boost_${BOOST_VERSION}
 
+echo BOOST_ROOT $BOOST_ROOT
+
 export BOOST_BUILD_PATH=$REPO_TOP_DIR/native/boost/boost_${BOOST_VERSION}-${ABI}
+
+echo BOOST_BUILD_PATH $BOOST_BUILD_PATH
 
 $BOOST_ROOT/b2 \
     --build-dir=../../boost/${BOOST}-${ABI} \
     --stagedir=../../boost/${BOOST}-${ABI}/stage \
     --user-config=../../boost/${BOOST}-${ABI}/user-config.jam \
+    openssl-lib=${REPO_TOP_DIR}/native/openssl-android-builder/dist-${ABI}/lib \
+    openssl-include=${REPO_TOP_DIR}/native/openssl-android-builder/dist-${ABI}/include \
+    crypto=openssl \
     cxxstd=14 \
     binary-format=elf \
     variant=release \
