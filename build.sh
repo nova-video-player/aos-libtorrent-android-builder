@@ -39,8 +39,7 @@ case "${ARCH}" in
 esac
 
 if [ ! -d libtorrent ]; then
-  #git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.7
-  git clone --recursive https://github.com/arvidn/libtorrent
+  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.8
 fi
 
 cd libtorrent
