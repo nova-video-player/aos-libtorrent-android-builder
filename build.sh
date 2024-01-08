@@ -44,14 +44,14 @@ fi
 
 cd libtorrent
 
-export BOOST_VERSION=1_84_0
+export BOOST_VERSION=1.84.0
 
-export BOOST_ROOT=${REPO_TOP_DIR}/native/boost/boost_${BOOST_VERSION}
-BOOST=boost_${BOOST_VERSION}
+export BOOST_ROOT=${REPO_TOP_DIR}/native/boost/boost-${BOOST_VERSION}
+BOOST=boost-${BOOST_VERSION}
 
 echo BOOST_ROOT $BOOST_ROOT
 
-export BOOST_BUILD_PATH=$REPO_TOP_DIR/native/boost/boost_${BOOST_VERSION}-${ABI}
+export BOOST_BUILD_PATH=$REPO_TOP_DIR/native/boost/boost-${BOOST_VERSION}-${ABI}
 
 echo BOOST_BUILD_PATH $BOOST_BUILD_PATH
 
