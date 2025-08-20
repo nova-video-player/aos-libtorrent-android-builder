@@ -39,12 +39,12 @@ case "${ARCH}" in
 esac
 
 if [ ! -d libtorrent ]; then
-  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.10
+  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.11
 fi
 
 cd libtorrent
 
-export BOOST_VERSION=1.84.0
+export BOOST_VERSION=1.89.0
 
 export BOOST_ROOT=${REPO_TOP_DIR}/native/boost/boost-${BOOST_VERSION}
 BOOST=boost-${BOOST_VERSION}
