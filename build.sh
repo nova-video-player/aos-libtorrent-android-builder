@@ -70,6 +70,7 @@ $BOOST_ROOT/b2 \
     toolset=clang-android \
     link=static \
     runtime-link=static \
+    linkflags="-Wl,--page-size=16384" \
     target-os=android \
     release \
     -j${CORES}
