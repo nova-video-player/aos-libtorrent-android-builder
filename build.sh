@@ -24,6 +24,10 @@ source ../../AVP/android-setup-light.sh
 
 LOCAL_PATH=$($READLINK -f .)
 
+if [ -z "${REPO_TOP_DIR}" ]; then
+  REPO_TOP_DIR=$($READLINK -f ../..)
+fi
+
 case "${ARCH}" in
   'arm')
     ABI='armeabi-v7a' ;;
@@ -44,7 +48,7 @@ fi
 
 cd libtorrent
 
-export BOOST_VERSION=1.89.0
+export BOOST_VERSION=1.90.0
 
 export BOOST_ROOT=${REPO_TOP_DIR}/native/boost/boost-${BOOST_VERSION}
 BOOST=boost-${BOOST_VERSION}
@@ -59,8 +63,8 @@ $BOOST_ROOT/b2 \
     --build-dir=../../boost/${BOOST}-${ABI} \
     --stagedir=../../boost/${BOOST}-${ABI}/stage \
     --user-config=../../boost/${BOOST}-${ABI}/user-config.jam \
-    openssl-lib=${REPO_TOP_DIR}/native/openssl-android-builder/dist-${ABI}/lib \
-    openssl-include=${REPO_TOP_DIR}/native/openssl-android-builder/dist-${ABI}/include \
+    openssl-lib=${REPO_TOP_DIR}/native/prebuilt/openssl/dist-${ABI}/lib \
+    openssl-include=${REPO_TOP_DIR}/native/prebuilt/openssl/dist-${ABI}/include \
     crypto=openssl \
     cxxstd=14 \
     binary-format=elf \
