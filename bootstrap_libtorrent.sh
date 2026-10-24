@@ -11,6 +11,6 @@ do
         ABI=${ARCH} ;;
     esac
   if [[ ! -d dist-${ABI} ]]; then
-    ( . build.sh -a ${ARCH} )
+    bash ./build.sh -a "${ARCH}" || exit $?
   fi
 done

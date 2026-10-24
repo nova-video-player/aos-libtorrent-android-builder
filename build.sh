@@ -43,7 +43,7 @@ case "${ARCH}" in
 esac
 
 if [ ! -d libtorrent ]; then
-  git clone --recursive https://github.com/arvidn/libtorrent -b v2.0.14
+  git clone --recursive https://github.com/arvidn/libtorrent -b v2.1.2
 fi
 
 cd libtorrent
@@ -66,7 +66,8 @@ $BOOST_ROOT/b2 \
     openssl-lib=${REPO_TOP_DIR}/native/prebuilt/openssl/dist-${ABI}/lib \
     openssl-include=${REPO_TOP_DIR}/native/prebuilt/openssl/dist-${ABI}/include \
     crypto=openssl \
-    cxxstd=14 \
+    webtorrent=off \
+    cxxstd=17 \
     binary-format=elf \
     variant=release \
     threading=multi \
